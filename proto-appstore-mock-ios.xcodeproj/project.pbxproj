@@ -13,6 +13,8 @@
 		AA36339129D621B9004E01C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA36338F29D621B9004E01C5 /* Main.storyboard */; };
 		AA36339329D621BB004E01C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA36339229D621BB004E01C5 /* Assets.xcassets */; };
 		AA36339629D621BB004E01C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA36339429D621BB004E01C5 /* LaunchScreen.storyboard */; };
+		AA36339E29D63330004E01C5 /* AppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36339D29D63330004E01C5 /* AppCell.swift */; };
+		AA3633A029D66311004E01C5 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA36339F29D66311004E01C5 /* CategoryCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		AA36339229D621BB004E01C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA36339529D621BB004E01C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA36339729D621BB004E01C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA36339D29D63330004E01C5 /* AppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCell.swift; sourceTree = "<group>"; };
+		AA36339F29D66311004E01C5 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,8 @@
 				AA36339229D621BB004E01C5 /* Assets.xcassets */,
 				AA36339429D621BB004E01C5 /* LaunchScreen.storyboard */,
 				AA36339729D621BB004E01C5 /* Info.plist */,
+				AA36339D29D63330004E01C5 /* AppCell.swift */,
+				AA36339F29D66311004E01C5 /* CategoryCell.swift */,
 			);
 			path = "proto-appstore-mock-ios";
 			sourceTree = "<group>";
@@ -139,8 +145,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA36338E29D621B9004E01C5 /* ViewController.swift in Sources */,
+				AA36339E29D63330004E01C5 /* AppCell.swift in Sources */,
 				AA36338A29D621B9004E01C5 /* AppDelegate.swift in Sources */,
 				AA36338C29D621B9004E01C5 /* SceneDelegate.swift in Sources */,
+				AA3633A029D66311004E01C5 /* CategoryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
