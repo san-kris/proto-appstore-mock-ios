@@ -9,6 +9,17 @@ import UIKit
 
 class AppCell: UICollectionViewCell {
     
+    var appCellViewModel: AppViewModelType? {
+        didSet{
+            print("App cell view Model set")
+            guard let appCellViewModel else {return}
+            appTitleLabel.text = appCellViewModel.name
+            appCategoryLabel.text = appCellViewModel.category
+            appIconImageView.image = UIImage(named: appCellViewModel.iconImageName)
+            appCostLabel.text = "$\(appCellViewModel.price)"
+        }
+    }
+    
     let appIconImageView: UIImageView = {
         let iv = UIImageView(image: UIImage(named: "confused"))
         iv.backgroundColor = .yellow

@@ -11,24 +11,46 @@ class ViewController: UICollectionViewController {
     
     let cellID = "cellID"
     
+    // you will receive class has no init error if you declare a optioonal as let
+    var appCategories: [AppCategoryViewModelType]? {
+        didSet{
+            print("Did set App Categories View Model in VC")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setupViewModel()
         
         // Do any additional setup after loading the view.
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: cellID)
 
     }
     
+    fileprivate func setupViewModel() {
+        let model = MockAppData.makeDummyModelData()
+        appCategories = model.map({ (category) in
+            AppStoreCategoryViewModel(category: category)
+        })
+    }
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
+        1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        if let appCategories{
+            return appCategories.count
+        }
+        return 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CategoryCell
+        if let categoryViewModel = appCategories?[indexPath.row]{
+            cell.appCategoryViewModel = categoryViewModel
+        }
         return cell
     }
     

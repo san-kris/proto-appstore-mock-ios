@@ -9,7 +9,14 @@ import UIKit
 
 class CategoryCell: UICollectionViewCell{
 
+    // name of the cell used
     let appCellID = "appCellId"
+    
+    var appCategoryViewModel: AppCategoryViewModelType? {
+        didSet{
+            categoryLabel.text = appCategoryViewModel?.name
+        }
+    }
     
     let categoryLabel: UILabel = {
         let label = UILabel()
@@ -81,11 +88,15 @@ extension CategoryCell: UICollectionViewDataSource{
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        if let appCategoryViewModel{
+            return appCategoryViewModel.apps.count
+        }
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: appCellID, for: indexPath) as! AppCell
+        cell.appCellViewModel = appCategoryViewModel?.apps[indexPath.row]
         return cell
     }
     
