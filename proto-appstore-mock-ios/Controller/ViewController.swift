@@ -50,6 +50,7 @@ class ViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellID, for: indexPath) as! CategoryCell
         if let categoryViewModel = appCategories?[indexPath.row]{
             cell.appCategoryViewModel = categoryViewModel
+            cell.categoryListViewController = self
         }
         return cell
     }
@@ -70,6 +71,12 @@ class ViewController: UICollectionViewController {
     // this is not called becaue the cell is covered with a collection view
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Row selected \(indexPath.section) ; \(indexPath.row) \(indexPath.item)")
+    }
+    
+    func showAppDetailsForApp(app: AppViewModelType) -> Void {
+        let appDetailsController = AppDetailViewController(collectionViewLayout: UICollectionViewFlowLayout())
+        appDetailsController.app = app
+        navigationController?.pushViewController(appDetailsController, animated: true)
     }
 }
 

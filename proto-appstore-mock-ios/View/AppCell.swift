@@ -9,6 +9,7 @@ import UIKit
 
 class AppCell: UICollectionViewCell {
     
+    
     var appCellViewModel: AppViewModelType? {
         didSet{
             print("App cell view Model set")

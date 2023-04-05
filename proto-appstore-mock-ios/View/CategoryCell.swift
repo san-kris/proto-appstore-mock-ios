@@ -12,6 +12,9 @@ class CategoryCell: UICollectionViewCell{
     // name of the cell used
     let appCellID = "appCellId"
     
+    var categoryListViewController: ViewController?
+
+    
     var appCategoryViewModel: AppCategoryViewModelType? {
         didSet{
             categoryLabel.text = appCategoryViewModel?.name
@@ -116,5 +119,8 @@ extension CategoryCell: UICollectionViewDelegateFlowLayout{
 extension CategoryCell: UICollectionViewDelegate{
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("Cell selected: \(indexPath.section); \(indexPath.row); \(indexPath.item)")
+        if let app = appCategoryViewModel?.apps[indexPath.row] {
+            categoryListViewController?.showAppDetailsForApp(app: app)
+        }
     }
 }
